@@ -1,0 +1,37 @@
+<div class="container">
+    <div>
+        <h2>Modifier un Marque :</h2>
+    </div>
+    <form>
+        <div class="col-sm-2 col-md-2 col-lg-2">
+            <label>ID Marque</label>
+            <input readonly type="text" [(ngModel)]="currentMarque.idMarque" name="idMarque" class="form-control">
+        </div>
+        <div class="col-sm-4 col-md-4 col-lg-4">
+            <label>Nom Marque</label>
+            <input type="text" [(ngModel)]="currentMarque.nomMarque" name="nomMarque" class="form-control">
+        </div>
+        <div class="col-sm-2 col-md-2 col-lg-2">
+            <label>Prix Marque</label>
+            <input type="number" [(ngModel)]="currentMarque.prixMarque" name="prixMarque" class="form-control">
+        </div>
+        <div class="col-sm-4 col-md-4 col-lg-4">
+            <label>Date création</label>
+            <input type="date" [ngModel]="currentMarque.dateCreation | date: 'yyyy-MM-dd'" (ngModelChange)=" currentMarque.dateCreation= $event" name="dateCreation" class="form-control">
+        </div>
+
+        <div class="col-sm-4 col-md-4 col-lg-4">
+            <label>Telephone</label>
+            <select class="form-control form-control-lg" id="idTel" name="idTel" [(ngModel)]="updatedTelId">
+            <option *ngFor="let tel of telephonescat" [value]="tel.idTel" >
+            {{tel.nomTel}}
+            </option>
+            </select>
+        </div>
+
+        <div class="mt-2">
+            <button type="submit" (click)="updateMarque()" class="btn btn-success">Modifier</button>
+
+        </div>
+    </form>
+</div>

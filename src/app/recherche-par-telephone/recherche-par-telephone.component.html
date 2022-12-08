@@ -1,0 +1,42 @@
+<div class="container">
+
+    <div class="col-sm-4 col-md-4 col-lg-4 mb-4">
+        <label>Telephones </label>
+        <select class="form-control form-control-lg" id="idTel" name="idTel" [(ngModel)]="IdTelephone" (change)="onChange()">
+        <option *ngFor="let tel of telephonescat" value="{{tel.idTel}}">
+        {{tel.nomTel}}
+         </option>
+        </select>
+    </div>
+
+    <div class="card shadow mb-4">
+        <div class="card-body">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>Id</th>
+                        <th>Nom</th>
+                        <th>Prix</th>
+                        <th>Date Création</th>
+                        <th>Téléphones</th>
+
+                    </tr>
+                </thead>
+                <tbody *ngFor="let marque of telephones">
+                    <tr>
+                        <td>{{marque.idMarque}}</td>
+                        <td>{{marque.nomMarque}}</td>
+                        <td>{{marque.prixMarque}}</td>
+                        <td>{{marque.dateCreation | date:'dd/MM/yyyy'}}</td>
+                        <td>{{marque.telephone.nomTel}}</td>
+                        <!--  <td><a class="btn btn-danger" (click)="supprimerMarque(marque)">Supprimer</a></td>
+                        <td><a class="btn btn-success" [routerLink]="['/updateMarque',marque.idMarque]">Modifier</a></td> -->
+
+
+
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
